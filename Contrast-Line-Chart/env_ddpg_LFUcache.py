@@ -93,7 +93,7 @@ def get_coefficient_success(sort_index):
 def get_coefficient_unsuccess(sort_index):
     return 4 + 0.5 * sort_index
 
-class ENV_DDPG_NOCACHE:
+class ENV_DDPG_LFUCACHE:
     def __init__(self, num_car, num_tcar, num_scar, num_task):
         self.relationship = None
         self.progress = None
@@ -126,15 +126,14 @@ class ENV_DDPG_NOCACHE:
 
         self.rn = 4e6
         self.car_cpu_frequency = 1.5e9
-
+        self.popularity = []
         self.bloom = BloomFilter(10000, 20)
         self.popularity_type = []
         self.t_all = 0
         self.num_unload = 0
         self.num_unload_success = 0
-        self.T = 0
 
-    def get_init_state(self, T_delay):
+    def get_init_state(self):
         self.num_unload = 0
         self.num_unload_success = 0
         self.count_wrong = 0
@@ -142,12 +141,17 @@ class ENV_DDPG_NOCACHE:
         self.t_calculate = 0
         self.t_offload = 0
         self.t_all = 0
-        self.T = T_delay
         self.car = get_car_info(self.num_car)
 
         self.task = get_task_info(self.num_task)
 
         self.relationship = get_relationship(self.car, self.num_scar, self.num_tcar)
+
+        self.popularity = get_popularity_index()
+
+        self.popularity_type = get_popularity_type(self.popularity)
+
+        self.bloom = add_bloom(self.popularity_type)
 
         # dn:任务的输入数据大小
         self.dn = [0] * self.num_task
@@ -166,7 +170,7 @@ class ENV_DDPG_NOCACHE:
         # 进度
         self.progress = [0] * self.num_task
 
-        state = np.concatenate((self.dn, self.cn, self.progress, self.cpu_remain, self.relationship))
+        state = np.concatenate((self.dn, self.cn, self.progress, self.cpu_remain, self.relationship, self.popularity))
         return state
 
     def step(self, action):
@@ -188,7 +192,7 @@ class ENV_DDPG_NOCACHE:
         # print('卸载给谁 {}'.format(get2))
 
         i_task = self.i_task
-        T = self.T
+        T = self.task[i_task].delay_constraints
         Cpu_task = self.task[i_task].cn
         # 本地卸载
         if get1 == 0:
@@ -216,6 +220,6 @@ class ENV_DDPG_NOCACHE:
                 self.t_all += T
 
         self.i_task += 1
-        state = np.concatenate((self.dn, self.cn, self.progress, self.cpu_remain, self.relationship))
+        state = np.concatenate((self.dn, self.cn, self.progress, self.cpu_remain, self.relationship, self.popularity))
         return state, self.reward, self.done
 

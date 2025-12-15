@@ -85,9 +85,9 @@ All tasks are processed locally on the requesting vehicle without offloading to 
 * run.py is the execution file.
 * Model parameter files (Actor\_ddpg, Criticddpg, etc.).
 
-### Pre-DDPG
+### Pre-LFU-DDPG
 
-DDPG algorithm variant without cache mechanism. This configuration removes the Bloom Filter cache management to evaluate the impact of caching on system performance.
+DDPG algorithm variant with LFU mechanism. This configuration uses the LFU cache management to evaluate the impact of PHT caching on system performance.
 
 **File description:**
 
@@ -109,11 +109,11 @@ DDPG algorithm variant without GAN-based content popularity prediction. This con
 
 ### contrast-Line-chart
 
-Comparison experiments with different DDPG variants focusing on episode-based metrics. Includes comparisons between standard DDPG, local offloading, no-cache variant, and no-GAN variant with bar chart visualizations.
+Comparison experiments with different DDPG variants focusing on episode-based metrics. Includes comparisons between standard DDPG, local offloading, LFU cache variant, and no-GAN variant with bar chart visualizations.
 
 **File description:**
 
-* env\_ddpg.py, env\_ddpg\_local.py, env\_ddpg\_nocache.py, env\_ddpg\_nogan.py are environment configurations for different experimental variants.
+* env\_ddpg.py, env\_ddpg\_local.py, env\_ddpg\_LFUcache.py, env\_ddpg\_nogan.py are environment configurations for different experimental variants.
 * main\_episode\_alltime.py executes comparison experiments for total time cost across episodes.
 * main\_episode\_average\_time.py executes comparison experiments for average time cost per episode.
 * main\_episode\_rate.py executes comparison experiments for offloading rate analysis.
@@ -127,7 +127,7 @@ Comparison experiments with different DDPG variants focusing on time-based metri
 
 **File description:**
 
-* t\_alltime\_env\_ddpg.py, t\_alltime\_env\_ddpg\_local.py, t\_alltime\_env\_ddpg\_nocache.py, t\_alltime\_env\_ddpg\_nogan.py are environment configurations for time-based comparison experiments.
+* t\_alltime\_env\_ddpg.py, t\_alltime\_env\_ddpg\_local.py, t\_alltime\_env\_ddpg\_LFUcache.py, t\_alltime\_env\_ddpg\_nogan.py are environment configurations for time-based comparison experiments.
 * main\_t\_alltime.py is the main execution file for time-based comparison experiments.
 * network.py defines the network structure.
 * Model parameter files.
