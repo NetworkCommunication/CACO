@@ -20,24 +20,24 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "NetworkCommunication"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;NetworkCommunication&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/NetworkCommunication/CACO.git",
-    "accountId": "fbabdbe3-f1e5-4677-818c-0bea156ef2dd"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/NetworkCommunication/CACO.git&quot;,
+    &quot;accountId&quot;: &quot;fbabdbe3-f1e5-4677-818c-0bea156ef2dd&quot;
   }
-}]]></component>
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2NuAcNWSfA3UI34xACFa0JIAYg2" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -49,6 +49,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "WebServerToolWindowFactoryState": "false",
+    "augment.onboarding.workspace.first.indexed.D:/ProjectHome/test/zzjpro2": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/ProjectHome/test/zzjpro2",
@@ -78,6 +79,17 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="zzjpro2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="zzjpro2" />
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
     <configuration name="main_episode_alltime" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="zzjpro2" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -219,6 +231,7 @@
       <workItem from="1681562355681" duration="3744000" />
       <workItem from="1681566961903" duration="8388000" />
       <workItem from="1765707472535" duration="5558000" />
+      <workItem from="1765804153360" duration="1251000" />
     </task>
     <task id="LOCAL-00001" summary="second submit">
       <option name="closed" value="true" />
